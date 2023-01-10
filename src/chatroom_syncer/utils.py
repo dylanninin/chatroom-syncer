@@ -21,6 +21,7 @@ class Config(TypedDict):
     # github discussion as target
     enable_github_discussion: bool
     group_discussion_mapping: dict[str, str]
+    enable_dummy: bool
 
 
 def format_msg_text(text: str) -> str:

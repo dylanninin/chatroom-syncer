@@ -1,4 +1,7 @@
 ---
+# dummy
+enable_dummy: true
+
 # slack channel as target
 enable_slack: true
 # whether to enable slack msg with custom avatar

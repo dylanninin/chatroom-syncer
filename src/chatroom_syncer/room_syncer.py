@@ -1,6 +1,6 @@
 from wechaty import Wechaty
 
-from .plugins import GithubDiscussionSinkPlugin, SlackSinkPlugin
+from .plugins import GithubDiscussionSinkPlugin, SlackSinkPlugin, DummySinkPlugin
 from .utils import prepare_for_configuration
 
 
@@ -12,6 +12,10 @@ class RoomSyncBot(Wechaty):
     def __init__(self):
         self._config = prepare_for_configuration()
         super().__init__()
+        if self._config["enable_dummy"]:
+            self.use(DummySinkPlugin())
+            print("Dummy Sink Plugin Enabled")
+
         if self._config["enable_slack"]:
             self.use(SlackSinkPlugin())
             print("Slack Sink Plugin Enabled")
